@@ -1,0 +1,453 @@
+@charset "utf-8";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* 초기화 */
+
+:root {
+    --main-color: rgb(19, 19, 19);
+}
+
+body {
+    font-family: 'GmarketSansLight';
+    letter-spacing: -0.1rem;
+    line-height: 1.5rem;
+    overflow-x: hidden;
+}
+
+section {
+    height: 100vh;
+    background-color: white;
+}
+
+#sec1 {
+    background-color: var(--main-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    clip-path: circle(1200px at center center);
+    z-index: -1;
+}
+
+h1 {
+    position: absolute;
+    color: white;
+    font-size: 2vw;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, -10%);
+}
+
+h1::after {
+    position: absolute;
+    content: "";
+    width: 1%;
+    height: 0%;
+    left: 50%;
+    top: -250%;
+    transform: translateX(-50%);
+    background-color: white;
+    opacity: 0;
+    animation: linear infinite 1s;
+    animation-name: h1Ani;
+}
+
+@keyframes h1Ani {
+    0% {
+        height: 0;
+    }
+
+    70% {
+        height: 150%;
+        opacity: 1;
+    }
+
+    100% {
+        height: 150%;
+        opacity: 1;
+    }
+}
+
+#sec2 {
+    background-color: #f6f6f6;
+    margin-top: 150vh;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+.box {
+    z-index: 5;
+    position: absolute;
+    transform: rotate(90deg);
+    right: 10%;
+    bottom: 10%;
+    font-size: 2vw;
+    color: lightgrey;
+}
+.box::after {
+    position: absolute;
+    content: "";
+    width: 20%;
+    height: 200%;
+    left: -20%;
+    top: 30%;
+    transform: translateY(-50%);
+    background: url(../img/hi.svg) no-repeat center;
+    background-size: contain;
+}
+.scroll_trigger {
+    position: absolute;
+    top: 0;
+    right: 0%;
+    border: 1px solid red;
+    height: 20vw;
+}
+.SkewedOne,
+.SkewedTwo {
+    position: absolute;
+    bottom: -10%;
+    width: 100%;
+    height: 20%;
+
+    /* border: 1px solid var(--main-color); */
+    border-right: transparent;
+    border-left: transparent;
+    border-bottom: transparent;
+    background-color: white;
+}
+
+.SkewedOne {
+    left: 50%;
+    transform: skewY(-15deg);
+    transform-origin: top left;
+}
+
+.SkewedTwo {
+    right: 50%;
+    transform: skewY(15deg);
+    transform-origin: top right;
+}
+
+.sec2_inner {
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    font-size: 1vw;
+    line-height: 1.5vw;
+    text-align: left;
+    width: 35vw;
+    height: 30vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+h2,
+.about p:nth-of-type(1),
+.skill ul li:nth-of-type(1) {
+    font-size: 2vw;
+    line-height: 2.2vw;
+    margin-bottom: 10px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item:nth-child(even) {
+    padding-left: 30px;
+}
+
+.img {
+    overflow: hidden;
+    position: relative;
+}
+
+.img img {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.smile {
+    width: 5vw;
+    height: 5vw;
+    position: relative;
+    transform: rotate(-10deg);
+    animation: linear infinite alternate 1s;
+    animation-name: smileAni;
+}
+
+.smile img {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes smileAni {
+    0% {
+        transform: rotate(-10deg);
+    }
+
+    15% {
+        transform: rotate(10deg);
+    }
+
+    70% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+.container span {
+    position: relative;
+}
+
+.container span::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 75%;
+    left: 10%;
+    top: 40%;
+    background-color: #8DFFFF;
+    z-index: -1;
+}
+
+.eyes {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+}
+
+.eye {
+    width: 3vw;
+    height: 3vw;
+    margin: 50px 2px;
+    border-radius: 50%;
+    border: 2px solid var(--main-color);
+}
+
+.eye::before {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    width: 1vw;
+    height: 1vw;
+    border-radius: 50%;
+    top: 50%;
+    /* 왜 left를 50%로 하면 동작이 안되는지 */
+    left: 35%;
+    transform: translate(-50%, -50%);
+}
+
+#sec3 article {
+    /* border: 1px solid lightgrey; */
+    position: relative;
+    width: 80vw;
+    height: 40vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+/* 슬라이드 */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    background-color: white;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.main {
+    border: 1px solid lightgrey;
+    border-right: transparent;
+    width: 70%;
+    padding: 30px;
+    position: relative;
+}
+
+.main::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 5%;
+    left: 0%;
+    bottom: 0%;
+    background-color: white;
+    z-index: 1000;
+}
+
+.main .m {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+}
+
+.main .m img {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.sub {
+    border: 1px solid lightgrey;
+    width: 30%;
+}
+
+.sub .swiper-slide {
+    padding: 30px;
+    flex-direction: column;
+    align-items: start;
+}
+
+.sub .swiper-slide p,
+.sub .swiper-slide div {
+    margin: 5px 0;
+}
+
+.sub .swiper-slide p:nth-of-type(1) {
+    font-size: 1.5vw;
+    color: lightgray;
+}
+
+.sub .txt {
+    background-color: #f6f6f6;
+    height: 30%;
+    width: 100%;
+    font-size: 1vw;
+    line-height: 1.2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.sub .txt span {
+    text-align: left;
+}
+
+.sub .txt span:nth-of-type(1) {
+    margin-bottom: 10px;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: 5%;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--main-color);
+}
+
+.title {
+    line-height: 2.2vw;
+    font-size: 2vw;
+}
+
+.more {
+    position: relative;
+    font-size: 1.2vw;
+    padding: 10px;
+    width: 100%;
+    height: 8%;
+}
+
+.more a {
+    border: 1px solid lightgray;
+    color: var(--main-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.more a:hover {
+    border: 1px solid lightgray;
+    color: white;
+}
+
+.more a::after {
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: white;
+    z-index: -1;
+    transition: .3s;
+}
+
+.more a:hover::after {
+    width: 100%;
+    background-color: var(--main-color);
+}
